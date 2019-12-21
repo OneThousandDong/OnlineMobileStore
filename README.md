@@ -11,3 +11,4 @@
 - Thái Trần Hồng Quân - 17020989
 
 # [Tài liệu phần mềm](https://docs.google.com/document/d/1LF2626Af3ns8Z907nId70C4iSECK9dE-K_lSXfuuaCw/edit?fbclid=IwAR3hLIxUf5VhxvjALzlaGo0UaoabQY0fIMx0GWewTYmxP9RG42Cd0wYs2CQ)
+# [Slide thuyết trình](https://drive.google.com/file/d/1ujvhDX21UHc8I3YbxqPRh0Nt0afZBp6N/view)
