@@ -38,7 +38,6 @@ class ThongTinDonHang extends React.Component{
           GhiChu: data.GhiChu,
           Tongtien: data.Tongtien
         })
-        console.log(data)
       }
       else {
         alert("Error web service")

@@ -71,10 +71,10 @@ class FormCreateSanPham extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="formdt">
       
      <Form>
-     <div>Thông tin cơ bản</div>
+      <div className="headformdt">Thông tin cơ bản</div>
         <Row>
           <Col xs="4">
                 <FormGroup>
@@ -119,292 +119,299 @@ class FormCreateSanPham extends React.Component{
           </Col>
         </Row>
     
-
-    <h3>Image Upload</h3>
+      <h3>Image Upload</h3>
       <input type="file" name="file" multiple onChange={this.onChangeHandler} />
-      <div class="form-group">
+      <div className="form-group">
          <Progress max="100" color="success" value={this.state.loaded} >{Math.round(this.state.loaded,2) }%</Progress>
       </div>
-
-      <div>Thông số kỹ thuật chi tiết</div>
-        <Row>
-          <Col xs="3">
+        <div className="headformdt">Thông số kỹ thuật chi tiết</div>
+        <div className="headformdtct">Màn hình</div>
+          <Row>
+            <Col xs="3">
+                  <FormGroup>
+                      <Label for="eCNMH">Công nghệ màn hình</Label>
+                      <Input type="textarea" name="cnmh" id="eCNMH" value={this.state.CongNgheManHinh} onChange={(value) => this.setState({CongNgheManHinh:value.target.value})}/>
+                  </FormGroup>
+                
+            </Col>
+            <Col xs="3">
                 <FormGroup>
-                    <Label for="eCNMH">Công nghệ màn hình</Label>
-                    <Input type="text" name="cnmh" id="eCNMH" value={this.state.CongNgheManHinh} onChange={(value) => this.setState({CongNgheManHinh:value.target.value})}/>
+                    <Label for="eDPGMH">Độ phân giải</Label>
+                    <Input type="textarea" name="dpg" id="eDPGMH" value={this.state.DoPhanGiaiMH} onChange={(value) => this.setState({DoPhanGiaiMH:value.target.value})} />
                 </FormGroup>
-              
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eDPGMH">Độ phân giải</Label>
-                  <Input type="text" name="dpg" id="eDPGMH" value={this.state.DoPhanGiaiMH} onChange={(value) => this.setState({DoPhanGiaiMH:value.target.value})} />
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eDRMH">Độ rộng màn hình</Label>
-                  <Input type="text" name="drmh" id="eDRMH" value={this.state.DoRongMH} onChange={(value) => this.setState({DoRongMH:value.target.value})} />
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-        <Col xs="3">
-              <FormGroup>
-                  <Label for="eMK">Mặt kính</Label>
-                  <Input type="text" name="mk" id="eMK" value={this.state.MatKinh} onChange={(value) => this.setState({MatKinh:value.target.value})} />
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eDPGCS">Độ phân giải</Label>
-                  <Input type="text" name="dpg1" id="eDPGCS" value={this.state.DoPhanGiaiCamSau} onChange={(value) => this.setState({DoPhanGiaiCamSau:value.target.value})} />
-              </FormGroup>
-          </Col>
-          <Col xs="3">
+            </Col>
+            <Col xs="3">
                 <FormGroup>
-                    <Label for="eQP">Quay phim</Label>
-                    <Input type="text" id="eQP" value={this.state.QuayPhimCamSau} onChange={(value)=> this.setState({QuayPhimCamSau:value.target.value})}/>
+                    <Label for="eMK">Mặt kính</Label>
+                    <Input type="textarea" name="mk" id="eMK" value={this.state.MatKinh} onChange={(value) => this.setState({MatKinh:value.target.value})} />
                 </FormGroup>
-          </Col>
-          <Col xs="3">
+            </Col>
+            <Col xs="3">
                 <FormGroup>
-                    <Label for="eDF">Đèn flash</Label>
-                    <Input type="text" id="eDF" value={this.state.DenFlashCamSau} onChange={(value)=> this.setState({DenFlashCamSau:value.target.value})}/>
+                    <Label for="eDRMH">Độ rộng màn hình</Label>
+                    <Input type="textarea" name="drmh" id="eDRMH" value={this.state.DoRongMH} onChange={(value) => this.setState({DoRongMH:value.target.value})} />
                 </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-        <Col xs="3">
-              <FormGroup>
-                  <Label for="eNCCS">Nâng cao camera sau</Label>
-                  <Input type="text" name="nccs" id="eNCCS" value={this.state.NangCaoCamSau} onChange={(value) => this.setState({NangCaoCamSau:value.target.value})} />
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eDPGCT">Độ phân giải</Label>
-                  <Input type="text" name="DPGCT" id="eDPGCT" value={this.state.DoPhanGiaiCamTruoc} onChange={(value)=> this.setState({DoPhanGiaiCamTruoc:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="4">
-              <FormGroup>
-                  <Label for="eVideo">VideoCall</Label>
-                  <Input type="text" name="videocall" id="eVideo" value={this.state.VideoCall} onChange={(value)=> this.setState({VideoCall:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-        <Col xs="3">
-              <FormGroup>
-                  <Label for="eTTCT">Thông tin camera trước</Label>
-                  <Input type="text" name="ttct" id="eTTCT" value={this.state.ThongTinCamTruoc} onChange={(value) => this.setState({ThongTinCamTruoc:value.target.value})} />
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eHDH">Hệ điều hành</Label>
-                  <Input type="text" name="hdh" id="eHDH" value={this.state.HeDieuHanh} onChange={(value)=> this.setState({HeDieuHanh:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="4">
-              <FormGroup>
-                  <Label for="eChip">Chipset </Label>
-                  <Input type="text" name="chip" id="eChip" value={this.state.Chipset} onChange={(value)=> this.setState({Chipset:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eCPU">CPU</Label>
-                  <Input type="text" name="cpu" id="eCPU" value={this.state.CPU} onChange={(value)=> this.setState({CPU:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eGPU">GPU</Label>
-                  <Input type="text" name="gpu" id="eGPU" value={this.state.GPU} onChange={(value)=> this.setState({GPU:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eRam">RAM</Label>
-                  <Input type="text" name="ram" id="eRam" value={this.state.RAM} onChange={(value)=> this.setState({RAM:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eRom">ROM</Label>
-                  <Input type="text" name="rom" id="eRom" value={this.state.ROM} onChange={(value)=> this.setState({ROM:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eTheNho">Thẻ nhớ ngoài</Label>
-                  <Input type="text" name="thenho" id="eTheNho" value={this.state.TheNhoNgoai} onChange={(value)=> this.setState({TheNhoNgoai:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
+            </Col>
 
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eMdd">Mạng di động</Label>
-                  <Input type="text" name="mdd" id="eMdd" value={this.state.MangDIDong} onChange={(value)=> this.setState({MangDIDong:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eSim">SIM</Label>
-                  <Input type="text" name="sim" id="eSim" value={this.state.SIM} onChange={(value)=> this.setState({SIM:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eWifi">WIFI</Label>
-                  <Input type="text" name="wifi" id="eWifi" value={this.state.WIFI} onChange={(value)=> this.setState({WIFI:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eGps">GPS</Label>
-                  <Input type="text" name="gps" id="eGps" value={this.state.GPS} onChange={(value)=> this.setState({GPS:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eBlue">Bluetooth</Label>
-                  <Input type="text" name="blue" id="eBlue" value={this.state.Bluetooth} onChange={(value)=> this.setState({Bluetooth:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eKn">Kết nối</Label>
-                  <Input type="text" name="kn" id="eKn" value={this.state.KetNoi} onChange={(value)=> this.setState({KetNoi:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eJtn">Jack Tai Nghe</Label>
-                  <Input type="text" name="jtn" id="eJtn" value={this.state.JackTaiNghe} onChange={(value)=> this.setState({JackTaiNghe:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eKnk">Kết nối khác</Label>
-                  <Input type="text" name="knk" id="eKnk" value={this.state.KetNoiKhac} onChange={(value)=> this.setState({KetNoiKhac:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
+            <div className="headformdtct">Camera sau</div>
+          </Row>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eDPGCS">Độ phân giải</Label>
+                    <Input type="textarea" name="dpg1" id="eDPGCS" value={this.state.DoPhanGiaiCamSau} onChange={(value) => this.setState({DoPhanGiaiCamSau:value.target.value})} />
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                  <FormGroup>
+                      <Label for="eQP">Quay phim</Label>
+                      <Input type="textarea" id="eQP" value={this.state.QuayPhimCamSau} onChange={(value)=> this.setState({QuayPhimCamSau:value.target.value})}/>
+                  </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eNCCS">Nâng cao camera sau</Label>
+                    <Input type="textarea" name="nccs" id="eNCCS" value={this.state.NangCaoCamSau} onChange={(value) => this.setState({NangCaoCamSau:value.target.value})} />
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                  <FormGroup>
+                      <Label for="eDF">Đèn flash</Label>
+                      <Input type="textarea" id="eDF" value={this.state.DenFlashCamSau} onChange={(value)=> this.setState({DenFlashCamSau:value.target.value})}/>
+                  </FormGroup>
+            </Col>
+          
+          <div className="headformdtct">Camera trước</div>
+          </Row>
+          <Row>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eDPGCT">Độ phân giải</Label>
+                    <Input type="textarea" name="DPGCT" id="eDPGCT" value={this.state.DoPhanGiaiCamTruoc} onChange={(value)=> this.setState({DoPhanGiaiCamTruoc:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="4">
+                <FormGroup>
+                    <Label for="eVideo">VideoCall</Label>
+                    <Input type="textarea" name="videocall" id="eVideo" value={this.state.VideoCall} onChange={(value)=> this.setState({VideoCall:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eTTCT">Thông tin camera trước</Label>
+                    <Input type="textarea" name="ttct" id="eTTCT" value={this.state.ThongTinCamTruoc} onChange={(value) => this.setState({ThongTinCamTruoc:value.target.value})} />
+                </FormGroup>
+            </Col>
 
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eTK">Thiết kế</Label>
-                  <Input type="text" name="tk" id="eTK" value={this.state.ThietKe} onChange={(value)=> this.setState({ThietKe:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eCL">Chất liệu</Label>
-                  <Input type="text" name="cl" id="eCL" value={this.state.ChatLieu} onChange={(value)=> this.setState({ChatLieu:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eKT">Kích thước</Label>
-                  <Input type="text" name="kt" id="eKT" value={this.state.KichThuoc} onChange={(value)=> this.setState({KichThuoc:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="4">
-              <FormGroup>
-                  <Label for="eTL">Trọng Lượng</Label>
-                  <Input type="text" name="tl" id="eTL" value={this.state.TrongLuong} onChange={(value)=> this.setState({TrongLuong:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
+          <div className="headformdtct">Hệ điều hành - CPU</div>
+          </Row>
+          <Row>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eHDH">Hệ điều hành</Label>
+                    <Input type="textarea" name="hdh" id="eHDH" value={this.state.HeDieuHanh} onChange={(value)=> this.setState({HeDieuHanh:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="4">
+                <FormGroup>
+                    <Label for="eChip">Chipset </Label>
+                    <Input type="textarea" name="chip" id="eChip" value={this.state.Chipset} onChange={(value)=> this.setState({Chipset:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
 
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eDLP">Dung lượng pin</Label>
-                  <Input type="text" name="dlp" id="eDLP" value={this.state.DungLuongPin} onChange={(value)=> this.setState({DungLuongPin:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eLP">Loại pin</Label>
-                  <Input type="text" name="lp" id="eLP" value={this.state.LoaiPin} onChange={(value)=> this.setState({LoaiPin:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eCNP">Công nghệ pin</Label>
-                  <Input type="text" name="cnp" id="eCNP" value={this.state.CongNghePin} onChange={(value)=> this.setState({CongNghePin:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eBM">Bảo mật</Label>
-                  <Input type="text" name="bm" id="eBM" value={this.state.BaoMat} onChange={(value)=> this.setState({BaoMat:value.target.value})}/>
-              </FormGroup>
-          </Col>
-           <Col xs="3">
-              <FormGroup>
-                  <Label for="eTNDB">TÍnh năng đặc biệt</Label>
-                  <Input type="text" name="tndb" id="eTNDB" value={this.state.TinhNangDacBiet} onChange={(value)=> this.setState({TinhNangDacBiet:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eGA">Ghi âm</Label>
-                  <Input type="text" name="ga" id="eGA" value={this.state.GhiAm} onChange={(value)=> this.setState({GhiAm:value.target.value})}/>
-              </FormGroup>
-          </Col>
+          <div className="headformdtct">Bộ nhớ & Lưu trữ</div>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eCPU">CPU</Label>
+                    <Input type="textarea" name="cpu" id="eCPU" value={this.state.CPU} onChange={(value)=> this.setState({CPU:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="3">
+                <FormGroup>
+                    <Label for="eGPU">GPU</Label>
+                    <Input type="textarea" name="gpu" id="eGPU" value={this.state.GPU} onChange={(value)=> this.setState({GPU:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eRam">RAM</Label>
+                    <Input type="textarea" name="ram" id="eRam" value={this.state.RAM} onChange={(value)=> this.setState({RAM:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eRom">ROM</Label>
+                    <Input type="textarea" name="rom" id="eRom" value={this.state.ROM} onChange={(value)=> this.setState({ROM:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eTheNho">Thẻ nhớ ngoài</Label>
+                    <Input type="textarea" name="thenho" id="eTheNho" value={this.state.TheNhoNgoai} onChange={(value)=> this.setState({TheNhoNgoai:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
+          
+          <div className="headformdtct">Kết nối</div>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eMdd">Mạng di động</Label>
+                    <Input type="textarea" name="mdd" id="eMdd" value={this.state.MangDIDong} onChange={(value)=> this.setState({MangDIDong:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="3">
+                <FormGroup>
+                    <Label for="eSim">SIM</Label>
+                    <Input type="textarea" name="sim" id="eSim" value={this.state.SIM} onChange={(value)=> this.setState({SIM:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eWifi">WIFI</Label>
+                    <Input type="textarea" name="wifi" id="eWifi" value={this.state.WIFI} onChange={(value)=> this.setState({WIFI:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eGps">GPS</Label>
+                    <Input type="textarea" name="gps" id="eGps" value={this.state.GPS} onChange={(value)=> this.setState({GPS:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            
           </Row>
           <Row>
           <Col xs="3">
-              <FormGroup>
-                  <Label for="eRaio">Radio</Label>
-                  <Input type="text" name="radio" id="eRaio" value={this.state.Radio} onChange={(value)=> this.setState({Radio:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eXP">Xem phim</Label>
-                  <Input type="text" name="xp" id="eXP" value={this.state.XemPhim} onChange={(value)=> this.setState({XemPhim:value.target.value})}/>
-              </FormGroup>
-          </Col>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eNN">Nghe nhạc</Label>
-                  <Input type="text" name="nn" id="eNN" value={this.state.NgheNhac} onChange={(value)=> this.setState({NgheNhac:value.target.value})}/>
-              </FormGroup>
-          </Col>
-        </Row>
-        <div>Thông tin khác</div>
-        <Row>
-          <Col xs="3">
-              <FormGroup>
-                  <Label for="eTDPH">Thời điểm phát hành</Label>
-                  <Input type="text" name="tdph" id="eTDPH" value={this.state.ThoiDIemPhatHanh} onChange={(value)=> this.setState({ThoiDIemPhatHanh:value.target.value})}/>
-              </FormGroup>
-          </Col>
+                <FormGroup>
+                    <Label for="eBlue">Bluetooth</Label>
+                    <Input type="textarea" name="blue" id="eBlue" value={this.state.Bluetooth} onChange={(value)=> this.setState({Bluetooth:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eKn">Kết nối</Label>
+                    <Input type="textarea" name="kn" id="eKn" value={this.state.KetNoi} onChange={(value)=> this.setState({KetNoi:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="3">
+                <FormGroup>
+                    <Label for="eJtn">Jack Tai Nghe</Label>
+                    <Input type="textarea" name="jtn" id="eJtn" value={this.state.JackTaiNghe} onChange={(value)=> this.setState({JackTaiNghe:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eKnk">Kết nối khác</Label>
+                    <Input type="textarea" name="knk" id="eKnk" value={this.state.KetNoiKhac} onChange={(value)=> this.setState({KetNoiKhac:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
           
-        </Row>
-        <Button color="info" onClick={()=>this.sendSave()}>Create</Button>
+          <div className="headformdtct">Thiết kế & Trọng lượng</div>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eTK">Thiết kế</Label>
+                    <Input type="textarea" name="tk" id="eTK" value={this.state.ThietKe} onChange={(value)=> this.setState({ThietKe:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="3">
+                <FormGroup>
+                    <Label for="eCL">Chất liệu</Label>
+                    <Input type="textarea" name="cl" id="eCL" value={this.state.ChatLieu} onChange={(value)=> this.setState({ChatLieu:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eKT">Kích thước</Label>
+                    <Input type="textarea" name="kt" id="eKT" value={this.state.KichThuoc} onChange={(value)=> this.setState({KichThuoc:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eTL">Trọng Lượng</Label>
+                    <Input type="textarea" name="tl" id="eTL" value={this.state.TrongLuong} onChange={(value)=> this.setState({TrongLuong:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
+          
+          <div className="headformdtct">Thông tin pin & Sạc</div>
+          <Row>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eDLP">Dung lượng pin</Label>
+                    <Input type="textarea" name="dlp" id="eDLP" value={this.state.DungLuongPin} onChange={(value)=> this.setState({DungLuongPin:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="4">
+                <FormGroup>
+                    <Label for="eLP">Loại pin</Label>
+                    <Input type="textarea" name="lp" id="eLP" value={this.state.LoaiPin} onChange={(value)=> this.setState({LoaiPin:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="4">
+                <FormGroup>
+                    <Label for="eCNP">Công nghệ pin</Label>
+                    <Input type="textarea" name="cnp" id="eCNP" value={this.state.CongNghePin} onChange={(value)=> this.setState({CongNghePin:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
+          
+          <div className="headformdtct">Tiện ích</div>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eBM">Bảo mật</Label>
+                    <Input type="textarea" name="bm" id="eBM" value={this.state.BaoMat} onChange={(value)=> this.setState({BaoMat:value.target.value})}/>
+                </FormGroup>
+            </Col>
+             <Col xs="3">
+                <FormGroup>
+                    <Label for="eTNDB">Tính năng đặc biệt</Label>
+                    <Input type="textarea" name="tndb" id="eTNDB" value={this.state.TinhNangDacBiet} onChange={(value)=> this.setState({TinhNangDacBiet:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eGA">Ghi âm</Label>
+                    <Input type="textarea" name="ga" id="eGA" value={this.state.GhiAm} onChange={(value)=> this.setState({GhiAm:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            </Row>
+            <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eRaio">Radio</Label>
+                    <Input type="textarea" name="radio" id="eRaio" value={this.state.Radio} onChange={(value)=> this.setState({Radio:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eXP">Xem phim</Label>
+                    <Input type="textarea" name="xp" id="eXP" value={this.state.XemPhim} onChange={(value)=> this.setState({XemPhim:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eNN">Nghe nhạc</Label>
+                    <Input type="textarea" name="nn" id="eNN" value={this.state.NgheNhac} onChange={(value)=> this.setState({NgheNhac:value.target.value})}/>
+                </FormGroup>
+            </Col>
+          </Row>
+
+          <div className="headformdtct">Thông tin khác</div>
+          <Row>
+            <Col xs="3">
+                <FormGroup>
+                    <Label for="eTDPH">Thời điểm phát hành</Label>
+                    <Input type="textarea" name="tdph" id="eTDPH" value={this.state.ThoiDIemPhatHanh} onChange={(value)=> this.setState({ThoiDIemPhatHanh:value.target.value})}/>
+                </FormGroup>
+            </Col>
+            
+          </Row>
+          <Button color="info" onClick={()=>this.sendSave()}>Create</Button>
       </Form> 
         
       </div>
@@ -416,8 +423,10 @@ class FormCreateSanPham extends React.Component{
   }
 
   sendSave() {
-
-        const baseUrl = "http://localhost:5000/dienthoai/create";
+      if(this.state.selectedFile == null){
+            alert('Bạn chưa chọn ảnh')
+        }else{
+            const baseUrl = "http://localhost:5000/dienthoai/create";
         
         const datapost = {
            MaDienThoai : this.state.campmaDienthoai,
@@ -474,12 +483,12 @@ class FormCreateSanPham extends React.Component{
 
         const chUrl = "http://localhost:5000/cauhinh/create";
         axios.post(chUrl, chdatapost)
-        .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+          .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
           
         axios.post(baseUrl,datapost)
           .then(response=>{
@@ -517,6 +526,8 @@ class FormCreateSanPham extends React.Component{
           })
           .then(res => { // then print response status
           })
+        }
+      
 
     }
 
